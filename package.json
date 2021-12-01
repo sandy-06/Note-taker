@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sandy-06/Note-taker#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "generate-unique-id": "^2.0.1"
   }
 }
