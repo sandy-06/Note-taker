@@ -35,14 +35,21 @@ router.post('/notes', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
-   Note.destroy({
-      where: {
-         id: req.params.id
-      }
-   });
-});
+router.delete('/notes/:id', (req, res) => {
+   console.log("checking")
+   fs.readFile('db/db.json', 'utf8',  function (error, data) {
+      const noteArray = [].concat(JSON.parse(data));
+   const newNotes = noteArray.filter( note => {return note.id !== req.params.id});
+   fs.writeFile('db/db.json', JSON.stringify(newNotes), function(error, dataOne){
+      console.log(dataOne);  
+      res.json(dataOne); 
+   })
+     
+     
+   })
 
+});
+      
 
 
 
